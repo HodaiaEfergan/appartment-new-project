@@ -16,10 +16,10 @@ var port = process.env.PORT || 4000;
 var House;
 
 
-app.use(express.static(__dirname + "/client/dist/"))
-app.use(express.static(__dirname + "client"))
-app.use(express.static("client"))
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.static(__dirname + "/client/dist/"));
+app.use(express.static(__dirname + "client"));
+app.use(express.static("client"));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
