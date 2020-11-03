@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log('listening on port ' + port);
     //mongoose db:id,street,type,homeNumber,city,price,category,numOfRooms,size,neighborhood,floor,details,picture
-    mongoose.connect('mongodb://localhost:port/webApp', { useNewUrlParser: true, useUnifiedTopology: true });
+    mongoose.connect('mongodb://localhost:port/webApp' || 'https://git.heroku.com/appartment-new-project.git', { useNewUrlParser: true, useUnifiedTopology: true });
     var db = mongoose.connection;
     db.on('error', console.error.bind(console, 'connection error:'));
     db.once('open', function () {
