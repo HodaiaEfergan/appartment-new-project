@@ -41,8 +41,9 @@ app.listen(port, () => {
     var db = mongoose.connection;
     db.on('error', console.error.bind(console, 'connection error:'));
     db.once('open', function () {
+        console.log("connect db")
         const house_schema = new Schema({
-            id: String,
+            // id: String,
             street: String,
             type: String,
             homeNumber: Number,
@@ -64,6 +65,7 @@ app.listen(port, () => {
     //create a new house
     app.post('/add', async (req, res) => {
         //  console.log("request", req)
+        //const id = req.body.id;
         const street = req.body.street;
         const homeNumber = req.body.homeNumber;
         const city = req.body.city;
@@ -79,13 +81,20 @@ app.listen(port, () => {
         const size = req.body.type;
         var newHouse = new House(req.body);
         // console.log(req.body);
-        res.json(await newHouse.save());
+        res.json(await newHouse.save().then(createdHouse => {
+            res.status(201).json({
+                message: "Note added successfully",
+                houseId: createdHouse._id
+
+            });
+        }))
 
     });
     //delete one house-TODO
-    // app.delete('/one',async(req,res)=>{
-
-    //  })
+    app.post('/delete', async (req, res) => {
+        return res.json(await House.deleteOne({ _id: req.body._id })
+        )
+    })
     //delete all houses
     app.delete('/House', async (req, res) => {
         return res.json(await House.drop());
