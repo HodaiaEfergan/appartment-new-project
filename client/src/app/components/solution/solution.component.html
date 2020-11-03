@@ -7,7 +7,7 @@
     pdf-הדפסה או יצוא ל
 </button>
 <div class="container" dir="rtl">
-    <table class="table table trapped">
+    <table class="table table trapped" id="department-table">
         <tbody>
             <tr *ngFor="let data of currentDepartments" dir="rtl">
                 <th> <img *ngIf="data.picture" [src]="data.picture" height="200">

@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class SolutionComponent implements OnInit {
   currentDepartments: Array<Department>
-  constructor(private departmentService: DepartmentService,private router:Router) { }
+  constructor(private departmentService: DepartmentService, private router: Router) { }
 
   ngOnInit() {
     this.currentDepartments = this.departmentService.currentDepartments
@@ -19,10 +19,16 @@ export class SolutionComponent implements OnInit {
 
   }
   printPage() {
-  
-  window.print()
+    var divToPrint = document.getElementById("department-table");
+    var newWin = window.open("");
+    newWin.document.write("<center><h1>Meng and Mher</h1><p>List of Items</p> </center>");
+    newWin.document.write(divToPrint.outerHTML);
+    newWin.document.write("<style> td:button1-child(2){display:none;} </style>");
+    newWin.print();
+    newWin.close();
   }
-  addDepartment(){console.log("addDepartment")
+  addDepartment() {
+    console.log("addDepartment")
     this.router.navigate(['/add-department/'])
   }
 }
