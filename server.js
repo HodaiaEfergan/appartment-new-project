@@ -15,6 +15,10 @@ const router = express.router;
 var port = process.env.PORT || 4000;
 var House;
 
+
+app.use(express.static(process.cwd() + "/client/dist/"))
+app.use(express.static(process.cwd() + "client"))
+app.use(express.static("client"))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
 app.use(function (req, res, next) {
@@ -25,9 +29,9 @@ app.use(function (req, res, next) {
 //welcome to my server
 app.get('/', (req, res) => {
     //res.sendFile('welcome to my serverr');
-    //res.sendFile(path.join(__dirname + '/index.html'));
-    res.sendFile('index.html', { root: __dirname })
-
+    // res.sendFile(path.join(__dirname + '/index.html'));
+    res.sendFile(path.join(__dirname, 'client/dist/Angular8ClientCrud/index.html'));
+    // res.sendFile(path.resolve(__dirname, 'client/dist/index.html'));
 })
 
 app.listen(port, () => {
