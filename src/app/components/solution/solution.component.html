@@ -1,0 +1,63 @@
+<button type="submit" class="btn btn-outline-secondary" id="button1" (click)="addDepartment()">
+    לחץ כאן להוספת דירה חדשה
+</button>
+
+<button mat-stroked-button color="primary" (click)="printPage()" type="button">
+    <mat-icon>print</mat-icon>
+    pdf-הדפסה או יצוא ל
+</button>
+<div class="container" dir="rtl">
+    <table class="table table trapped">
+        <tbody>
+            <tr *ngFor="let data of currentDepartments" dir="rtl">
+                <th> <img *ngIf="data.picture" [src]="data.picture" height="200">
+                </th>
+                <th>
+                    <div>
+                        {{data.category}}
+                    </div>
+                    <div>
+                        {{data.type}}, {{data.neighborhood}}, {{data.street}}
+                    </div>
+                </th>
+
+                <th>
+                    <div>
+                        {{data.numOfRooms}}
+                    </div>
+                    <div>
+                        חדרים
+                    </div>
+                </th>
+                <th>
+                    <div>
+                        {{data.floor}}
+                    </div>
+                    <div>
+                        קומה
+                    </div>
+                </th>
+                <th>
+                    <div>
+                        {{data.size}}
+                    </div>
+                    <div>
+                        מ"ר
+                    </div>
+                </th>
+
+                <th>{{data.details}}</th>
+                <th>
+                    <div>
+                        {{data.price}}
+                    </div>
+                    <div>
+                        ש"ח
+                    </div>
+                </th>
+
+
+            </tr>
+        </tbody>
+    </table>
+</div>

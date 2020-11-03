@@ -1,0 +1,224 @@
+<h3>
+  הארץ
+</h3>
+
+
+
+
+<form [formGroup]="myForm" id="NewHouse" (ngSubmit)=" Submit()" dir="rtl">
+  <div class="form-row">
+
+    <div class=col>
+
+      <label for="category">קטגוריה</label><br>
+      <select class="form-control" formControlName="category" name="category" id="category" value="category"
+        formControlName="category">
+        <option value="השכרה">
+          השכרה
+        </option>
+        <option value="מכירה">
+          מכירה
+        </option>
+        <option value="דירות שותפים">
+          דירות שותפים
+        </option>
+        <option value="שבתות וחגים">
+          שבתות וחגים
+        </option>
+        <option value="נדלן מסחרי">
+          נדלן מסחרי
+        </option>
+      </select>
+    </div>
+    <div class="col">
+      <label for="neighborhood"> שכונה</label><br>
+      <select class="form-control" name="neighborhood" id="neigh" value="neighborhood" formControlName="neighborhood"
+        (change)="updateCurrentNeighborhood()">
+        <option value="קרית הרצוג">
+          קרית הרצוג
+        </option>
+        <option value="יסודות">
+          יסודות
+        </option>
+        <option value="נחלת שמעון">
+          נחלת שמעון
+        </option>
+        <option value="פרדס כץ">
+          פרדס כץ
+        </option>
+        <option value="תל גיבורים">
+          תל גיבורים
+        </option>
+      </select>
+
+    </div>
+    <div class="col">
+      <select *ngIf="currentNeighborhood=='קרית הרצוג'" class="form-control" formControlName="street" name="street"
+        id="type">
+        <option value="אבוחצירא ישראל"> אבוחצירא ישראל</option>
+        <option value="הרצל"> הרצל</option>
+        <option value="החלוצים"> החלוצים</option>
+        <option value="זבוטינסקי"> זבוטינסקי </option>
+        <option value="נורדאו"> נורדאו</option>
+        <option value="הוז דוב">הוז דוב</option>
+        <option value="הרב ברוט">הרב ברוט</option>
+        <option value="אוסישקין">אוסישקין</option>
+        <option value="בורוכוב">בורוכוב</option>
+        <option value="ביאליק">ביאליק</option>
+        <option value="בנימין אברהם">בנימין אברהם</option>
+        <option value="המכבים">המכבים</option>
+        <option value="אברבנאל">אברבנאל</option>
+        <option value="בן יוסף שלמה">בן יוסף שלמה</option>
+        <option value="טרומפלדור">טרומפלדור</option>
+        <option value="דנגור">דנגור</option>
+        <option value="הירש ברוך">הירש ברוך</option>
+        <option value="השניים">השניים</option>
+        <option value="סומך">סומך</option>
+        <option value="ההגנה">ההגנה</option>
+        <option value="הירקון">הירקון</option>
+        <option value="הפלמח">הפלמ"ח</option>
+        <option value="הרב פתאיה">הרב פתאיה</option>
+        <option value="גרונר">גרונר</option>
+        <option value="בגין מנחם">בגין מנחם</option>
+        <option value="מכלוף דוד">מכלוף דוד</option>
+      </select>
+
+
+      <select *ngIf="currentNeighborhood=='יסודות'" class="form-control" formControlName="street" name="street"
+        id="type">
+        <option value="גניחובסקי"> גניחובסקי</option>
+        <option value="נורוק"> נורוק</option>
+        <option value="וינרב"> וינרב</option>
+        <option value="הרב ראט משולם"> הרב ראט משולם </option>
+        <option value="אברבנאל"> אברבנאל</option>
+        <option value="הרב מצליח">הרב מצליח</option>
+        <option value="אביעד">אביעד</option>
+        <option value="צבי">צבי</option>
+        <option value="קובלסקי">קובלסקי</option>
+        <option value="נויפלד">נויפלד</option>
+        <option value="גרינברג">גרינברג</option>
+      </select>
+
+
+
+      <select *ngIf="currentNeighborhood=='נחלת שמעון'" class="form-control" name="street" id="type">
+        <option value="אברבנאל"> אברבנאל</option>
+        <option value="הרב שאול חדד"> הרב שאול חדד</option>
+        <option value="הדסים"> הדסים</option>
+        <option value="הרב ראש משולם"> הרב ראט משולם </option>
+        <option value="לנדאו חיים"> לנדאו חיים</option>
+      </select>
+
+
+
+      <select *ngIf="currentNeighborhood=='פרדס כץ'" class="form-control" formControlName="street" name="street"
+        id="type">
+        <option value="שלוש השעות"> שלוש השעות</option>
+        <option value="עמק יזרעאל"> עמק יזרעאל</option>
+        <option value="הרי גולן"> הרי גולן</option>
+        <option value="פדרמן דוזיה"> פדרמן דוזיה </option>
+        <option value="הרב אברמסקי"> הרב אברמסקי</option>
+        <option value="השר אלון יגאל"> השר אלון יגאל</option>
+        <option value="משולם ראט"> משולם ראט </option>
+      </select>
+
+
+
+      <select *ngIf="currentNeighborhood=='תל גיבורים'" class="form-control" formControlName="street" name="street"
+        id="type">
+        <option value="יונתן"> יונתן</option>
+        <option value="זבוטנסקי"> זבוטינסקי</option>
+        <option value="בן גוריון דוד"> בן גוריון דוד</option>
+        <option value="זרובבל"> זרובבל </option>
+        <option value="בגין מנחם"> בגין מנחם</option>
+        <option value="בר כוכבא"> בר כוכבא</option>
+        <option value="אצל"> אצל</option>
+        <option value="רזיאל"> רזיאל</option>
+        <option value="גרונר"> גרונר </option>
+        <option value="הרב יוסף חיים"> הרב יוסף חיים</option>
+        <option value="בן יוסף שלמה">בן יוסף שלמה</option>
+      </select>
+    </div>
+    <div class="col">
+      <label for="type"> סוג</label>
+
+      <select formControlName="type" class="form-control" name="type" id="type">
+        <option value="דירה"> דירה</option>
+        <option value="דירת גן"> דירת גן</option>
+        <option value="פרטי"> פרטי</option>
+        <option value="פנטהוז"> פנטהוז </option>
+        <option value="מחסן"> מחסן</option>
+        <option value="יחידת דיור">יחידת דיור</option>
+      </select>
+    </div>
+    <div class="col">
+      בית <input type="text" class="form-control" formControlName="homeNumber" name="homeNumber">
+    </div>
+    <div class="col">
+      :קומה <input type="text" class="form-control" name="floor" formControlName="floor" id="floor" name="floor">
+    </div>
+    <div class="col">
+      חדרים <input type="text" class="form-control" formControlName="numOfRooms" name="numOfRooms" id="neigh">
+    </div>
+    <div class="col">
+      :גודל <input type="text" class="form-control" formControlName="size" name="size" id="size">
+    </div>
+    <div class="col">
+      :מחיר <input type="text" class="form-control" formControlName="price" name="price" id="price">
+    </div>
+    <div class="col">
+      <label for="details"> תוספות</label><br>
+      <select class="form-control" name="details" id="details" multiple formControlName="details">
+        <option value="3">
+          מרפסת
+        </option>
+        <option value="4">
+          דלתות פנדור
+        </option>
+        <option value="5">
+          ממד
+        </option>
+        <option value="6">
+          מרוהטת
+        </option>
+        <option value="5">
+          חניה
+        </option>
+        <option value="6">
+          סורגים
+        </option>
+        <option value="5">
+          בבלעדיות
+        </option>
+        <option value="6">
+          מעלית
+        </option>
+        <option value="5">
+          מחסן
+        </option>
+        <option value="6">
+          מיזוג
+        </option>
+        <option value="5">
+          גישה לנכים
+        </option>
+        <option value="6">
+          משופצת
+        </option>
+      </select>
+    </div>
+    <div class="col">
+      <img [src]="url" height="200"> <br />
+      <input type="file" id="file" (change)="onSelectFile($event)">
+      <input type="hidden" name="fileHidden" formControlName="picture" />
+
+    </div>
+    <div class="col">
+      <button type="submit" class="btn btn-outline-secondary" id="button1">
+        הוסף
+      </button>
+    </div>
+  </div>
+
+
+</form>
