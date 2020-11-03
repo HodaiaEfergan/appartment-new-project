@@ -1,4 +1,5 @@
 export class Department {
+    _id:String
     street: String
     type: String
     homeNumber: Number

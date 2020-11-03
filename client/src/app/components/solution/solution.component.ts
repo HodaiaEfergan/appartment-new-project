@@ -15,20 +15,28 @@ export class SolutionComponent implements OnInit {
 
   ngOnInit() {
     this.currentDepartments = this.departmentService.currentDepartments
+
     console.log(this.currentDepartments)
 
   }
   printPage() {
-    var divToPrint = document.getElementById("department-table");
-    var newWin = window.open("");
-    newWin.document.write("<center><h1>Meng and Mher</h1><p>List of Items</p> </center>");
-    newWin.document.write(divToPrint.outerHTML);
-    newWin.document.write("<style> td:button1-child(2){display:none;} </style>");
-    newWin.print();
-    newWin.close();
+
+    window.print()
+
   }
   addDepartment() {
     console.log("addDepartment")
     this.router.navigate(['/add-department/'])
+  }
+  delete(id: string) {
+
+    console.log(id)
+    this.departmentService.deleteepartment({_id:id}).subscribe(res => {
+      var index = this.currentDepartments.findIndex(d => d._id == id)
+      if (index != -1) {
+        this.currentDepartments.splice(index, 1)
+      }
+      console.log("+++++", id)
+    })
   }
 }

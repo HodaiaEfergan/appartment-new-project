@@ -14,4 +14,7 @@ export class DepartmentService {
   addDepartment(data) {
     return this.http.post(baseUrl + '/add', data)
   }
+  deleteepartment(data){
+    return this.http.post(baseUrl + '/delete', data)
+  }
 }

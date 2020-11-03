@@ -1,8 +1,8 @@
-<button type="submit" class="btn btn-outline-secondary" id="button1" (click)="addDepartment()">
+<button type="submit" class="btn btn-outline-secondary" id="add-department" (click)="addDepartment()">
     לחץ כאן להוספת דירה חדשה
 </button>
 
-<button mat-stroked-button color="primary" (click)="printPage()" type="button">
+<button mat-stroked-button color="primary" (click)="printPage()" type="button" id="print">
     <mat-icon>print</mat-icon>
     pdf-הדפסה או יצוא ל
 </button>
@@ -10,56 +10,57 @@
     <table class="table table trapped" id="department-table">
         <tbody>
             <tr *ngFor="let data of currentDepartments" dir="rtl">
-                <th> <img *ngIf="data.picture" [src]="data.picture" height="200">
-                </th>
-                <th>
+                <td> <img *ngIf="data.picture" [src]="data.picture" height="200">
+                </td>
+                <td>
                     <div>
                         {{data.category}}
                     </div>
                     <div>
                         {{data.type}}, {{data.neighborhood}}, {{data.street}}
                     </div>
-                </th>
+                </td>
 
-                <th>
+                <td>
                     <div>
                         {{data.numOfRooms}}
                     </div>
                     <div>
                         חדרים
                     </div>
-                </th>
-                <th>
+                </td>
+                <td>
                     <div>
                         {{data.floor}}
                     </div>
                     <div>
                         קומה
                     </div>
-                </th>
-                <th>
+                </td>
+                <td>
                     <div>
                         {{data.size}}
                     </div>
                     <div>
                         מ"ר
                     </div>
-                </th>
+                </td>
 
-                <th>{{data.details}}</th>
-                <th>
+                <td>{{data.details}}</td>
+                <td>
                     <div>
                         {{data.price}}
                     </div>
                     <div>
                         ש"ח
                     </div>
-                </th>
-                <th>
-                    <button type="submit" class="btn btn-outline-secondary" id="button1">
+                </td>
+                <td id="delete">
+                   
+                    <button type="submit" class="btn btn-outline-secondary" id="button1" (click)="delete(data._id)">
                         מחיקה
                     </button>
-                </th>
+                </td>
 
 
             </tr>

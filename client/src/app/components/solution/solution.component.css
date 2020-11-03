@@ -1,0 +1,11 @@
+@media print {
+    #delete{
+        display: none;
+    }
+    #add-department{
+        display: none;
+    }
+    #print{
+        display: none;
+    }
+}

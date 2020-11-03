@@ -44,6 +44,7 @@ export class HomeComponent implements OnInit {
 
     var res = this.departmentService.getDepartments(this.myForm.value).subscribe(res => {
       this.departmentList = res as Array<Department>
+      console .log("!!!!!!!",res)
       this.departmentService.currentDepartments = this.departmentList
       this.router.navigate(['/solution/'])
     })

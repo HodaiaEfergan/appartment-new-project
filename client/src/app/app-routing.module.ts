@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SolutionComponent } from './components/solution/solution.component';
 import { AddDepartmentComponent } from './components/add-department/add-department.component';
+
 import { SearchComponent } from './components/search/search.component';
 
 
