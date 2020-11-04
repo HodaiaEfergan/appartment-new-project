@@ -43,7 +43,10 @@ app.listen(port, () => {
     db.once('open', function () {
         console.log("connect db")
         const house_schema = new Schema({
+
             // id: String,
+            minRooms: Number,
+            maxRooms: Number,
             street: String,
             type: String,
             homeNumber: Number,
@@ -62,6 +65,7 @@ app.listen(port, () => {
         //we are connected!!!
 
     });
+
     //create a new house
     app.post('/add', async (req, res) => {
         //  console.log("request", req)
@@ -121,6 +125,15 @@ app.listen(port, () => {
                 delete req.body[key];
             }
         });
+        const query = req.body;
+        if (req.body.minRooms) {
+            query.numOfRooms = { $gte: req.body.minRooms }
+            delete query.minRooms;
+        }
+        if (req.body.maxRooms) {
+            query.numOfRooms = { $lte: req.body.maxRooms }
+            delete query.maxRooms;
+        }
         const results = await House.find(req.body);
         console.log(req.body)
         res.json(results);
