@@ -1,6 +1,29 @@
-<button type="submit" class="btn btn-outline-secondary" id="add-department" (click)="addDepartment()">
-    לחץ כאן להוספת דירה חדשה
-</button>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" dir="rtl">
+    <a class="navbar-brand" href="#">
+        הארץ - מאגר הדירות הגדול
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">דף הבית <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./add-department">הוספת דירה</a>
+            </li>
+
+
+        </ul>
+    </div>
+</nav>
+<br>
+<br>
+
+
 
 <button mat-stroked-button color="primary" (click)="printPage()" type="button" id="print">
     <mat-icon>print</mat-icon>
@@ -56,7 +79,7 @@
                     </div>
                 </td>
                 <td id="delete">
-                   
+
                     <button type="submit" class="btn btn-outline-secondary" id="button1" (click)="delete(data._id)">
                         מחיקה
                     </button>

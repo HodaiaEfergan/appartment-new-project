@@ -2,7 +2,7 @@ agm-map {
     height: 300px !important;
     width: 100%;  /* This is really important*/
     direction: rtl;
-    background-color: aqua;
+    
   }
   #button1 {
     position: absolute;
@@ -10,5 +10,13 @@ agm-map {
     top: 50%;
     left: 60%;
     margin: -100px 0 0 -150px;
+  }
+  div{
+    text-align: right;
+    color:gray
+
+  }
+  button{
+    color: darkmagenta;
   }
   

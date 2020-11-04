@@ -36,6 +36,7 @@ export class AddDepartmentComponent implements OnInit {
   Submit() {
     console.log(this.myForm.value)
     this.departmentService.addDepartment(this.myForm.value).subscribe(res => console.log(res))
+    alert("הדירה נוספה בהצלחה");
   }
   updateCurrentNeighborhood() {
     console.log(" this.neighborhood.value", this.neighborhood.value)

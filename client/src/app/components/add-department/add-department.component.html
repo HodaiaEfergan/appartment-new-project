@@ -1,8 +1,23 @@
-<h3>
-  הארץ
-  מאגר הדירות הגדול
-</h3>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" dir="rtl">
+  <a class="navbar-brand" href="#">
+    הארץ - מאגר הדירות הגדול
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item">
+        <a class="nav-link" href="#add-department">דף הבית</a>
+      </li>
+
+
+    </ul>
+  </div>
+</nav>
 
 
 
@@ -54,6 +69,7 @@
 
     </div>
     <div class="col">
+      <label for="category">רחוב</label><br>
       <select *ngIf="currentNeighborhood=='קרית הרצוג'" class="form-control" formControlName="street" name="street"
         id="type">
         <option value="אבוחצירא ישראל"> אבוחצירא ישראל</option>
@@ -152,24 +168,40 @@
         <option value="יחידת דיור">יחידת דיור</option>
       </select>
     </div>
+
     <div class="col">
-      בית <input type="text" class="form-control" formControlName="homeNumber" name="homeNumber">
+      <label for="type"> בית</label>
+
+      <br>
+      <input type="text" class="form-control" formControlName="homeNumber" name="homeNumber">
     </div>
     <div class="col">
-      :קומה <input type="text" class="form-control" name="floor" formControlName="floor" id="floor" name="floor">
+      <label for="type"> קומה</label>
+
+      <br>
+      <input type="text" class="form-control" name="floor" formControlName="floor" id="floor" name="floor">
     </div>
     <div class="col">
-      חדרים <input type="text" class="form-control" formControlName="numOfRooms" name="numOfRooms" id="neigh">
+      <label for="type"> חדרים</label>
+
+      <br>
+      <input type="text" class="form-control" formControlName="numOfRooms" name="numOfRooms" id="neigh">
     </div>
     <div class="col">
-      :גודל <input type="text" class="form-control" formControlName="size" name="size" id="size">
+      <label for="type"> גודל</label>
+
+      <br>
+      <input type="text" class="form-control" formControlName="size" name="size" id="size">
     </div>
     <div class="col">
-      :מחיר <input type="text" class="form-control" formControlName="price" name="price" id="price">
+      <label for="type"> מחיר</label>
+
+      <br>
+      <input type="text" class="form-control" formControlName="price" name="price" id="price">
     </div>
     <div class="col">
       <label for="details"> תוספות</label><br>
-      <select class="form-control" name="details" id="details" multiple formControlName="details">
+      <select class="form-control" name="details" id="details" formControlName="details">
         <option value="3">
           מרפסת
         </option>
@@ -209,16 +241,16 @@
       </select>
     </div>
     <div class="col">
-      <img [src]="url" height="200"> <br />
+      <label for="picture"> תמונה</label><br>
       <input type="file" id="file" (change)="onSelectFile($event)">
       <input type="hidden" name="fileHidden" formControlName="picture" />
 
     </div>
-    <div class="col">
-      <button type="submit" class="btn btn-outline-secondary" id="button1">
-        הוסף
-      </button>
-    </div>
+
+    <button type="submit" class="btn btn-outline-secondary" id="button1">
+      הוסף
+    </button>
+
   </div>
 
 
