@@ -60,7 +60,8 @@ app.listen(port, () => {
             details: [String],
             picture: String,
             minPrice: Number,
-            maxPrice: Number
+            maxPrice: Number,
+            phoneNumber: String
 
         });
         House = mongoose.model("houses", house_schema);
@@ -73,6 +74,7 @@ app.listen(port, () => {
         //  console.log("request", req)
         //const id = req.body.id;
         const street = req.body.street;
+        const phoneNumber = req.body.phoneNumber;
         const homeNumber = req.body.homeNumber;
         const city = req.body.city;
         const price = req.body.price;
