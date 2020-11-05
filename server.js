@@ -59,6 +59,8 @@ app.listen(port, () => {
             floor: Number,
             details: [String],
             picture: String,
+            minPrice: Number,
+            maxPrice: Number
 
         });
         House = mongoose.model("houses", house_schema);
@@ -133,6 +135,14 @@ app.listen(port, () => {
         if (req.body.maxRooms) {
             query.numOfRooms = { $lte: req.body.maxRooms }
             delete query.maxRooms;
+        }
+        if (req.body.minPrice) {
+            query.price = { $gte: req.body.minPrice }
+            delete query.minPrice;
+        }
+        if (req.body.maxPrice) {
+            query.price = { $lte: req.body.price }
+            delete query.maxPrice;
         }
         const results = await House.find(req.body);
         console.log(req.body)
